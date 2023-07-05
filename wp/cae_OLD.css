@@ -1,0 +1,501 @@
+/* External Style Sheet for Writing Planner Web Application */
+/* Author: Jeremy Nally */
+/* Last updated: January 4, 2021 */
+@font-face {
+	font-family: "Open Sans";
+	src: url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+  }
+
+body {
+	font-family: "Open Sans", sans-serif;
+}
+
+#wrapper {
+	background-color: #19755a;
+}
+
+article {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.clearboth {
+	clear: both;
+}
+
+p,
+#optionalEmailLbl,
+#contactCAELbl {
+	font-size: 125%;
+}
+
+#headingArea {
+	float: left;
+	display: grid;
+	align-items: center;
+}
+
+header {
+	background-color: #66a391;
+	color: white;
+	margin: 0;
+	padding: 10px 0 0 0;
+	border-radius: 20px 20px 0 0;
+}
+
+header nav {
+	background-color: #66a391;
+	color: white;
+	clear: both;
+}
+
+header h1 {
+	padding: 0 10px 10px 20px;
+	font-size: 2.5em;
+	margin: 0;
+	color: white;
+	/*-webkit-text-fill-color: black;
+	Will override color (regardless of order) 
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;*/
+}
+
+footer {
+	margin-top: 20px;
+	margin-bottom: 0;
+	text-align: center;
+	clear: both;
+	font-size: 1em;
+	padding-bottom: 10px;
+	background-color: #b2d1c8;
+	border-radius: 0 0 20px 20px;
+}
+
+footer nav {
+	background-color: rgba(200, 200, 200, 0.8);
+}
+
+footer p {
+	margin-bottom: 0;
+}
+
+img {
+	width: 50%;
+	height: auto;
+	float: right;
+}
+
+.formLabel {
+	width: 130px;
+	float: left;
+}
+
+.resp-container {
+	position: relative;
+	overflow: hidden;
+	padding-top: 56.25%;
+}
+
+.resp-iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+legend {
+	font-weight: bold;
+}
+
+/* BJS - make legends stand out a bit more */
+
+/* http://themeloom.com/2013/02/tips-embed-google-maps-and-calendars-in-a-responsive-wordpress-theme/ modify this more later */
+.iframeContainer {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	border: none;
+	border-width: 0px;
+}
+
+.iframeContainer iframe,
+.viframeContainer object,
+.viframeContainer embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-width: 0px;
+}
+
+nav {
+	font: 1.4em Calibri, Helvetica, sanserif;
+	margin: 0;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+nav li a {
+	display: block;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav a:link {
+	color: white;
+}
+
+nav li a:hover {
+	background: #c5cef7;
+}
+
+/* unvisited link */
+a:link {
+	color: green;
+}
+
+/* visited link */
+a:visited {
+	color: green;
+}
+
+/* mouse over link */
+a:hover {
+	color: #292da3;
+}
+
+/* selected link */
+a:active {
+	color: #2726bb;
+}
+
+/* EXPERIMENTAL */
+
+/* Modifying what I learned from
+	 https://medialoot.com/blog/how-to-create-a-responsive-navigation-menu-using-only-css/
+  */
+
+input#show-menu[type="checkbox"] {
+	display: none;
+}
+
+input#show-menu[type="checkbox"]:checked~#mainNav {
+	display: block;
+}
+
+/* END EXPERIMENTAL */
+
+/* PHONES */
+@media only screen and (max-width: 600px) {
+	#wrapper {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
+	#headingArea img {
+		display: none;
+	}
+
+	#headingArea p {
+		padding-left: 20px;
+	}
+
+	article {
+		padding: 5px;
+	}
+
+	.twoSections,
+	.threeSections,
+	.boardLeft,
+	.boardRight {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: none;
+		box-shadow: none;
+		font: 1.4em Calibri, Helvetica, sanserif;
+	}
+
+	/* EXPERIMENTAL */
+
+	#mainNav {
+		position: static;
+		display: none;
+		clear: right;
+	}
+
+	.show-menu {
+		display: block;
+		text-align: right;
+	}
+
+	.show-menu img {
+		width: 40px;
+		height: 40px;
+	}
+
+	/* END EXPERIMENTAL */
+}
+
+/* END PHONES */
+
+/* TABLETS */
+@media only screen and (min-width: 600px) {
+	#wrapper {
+		width: 90%;
+		/*border:1px solid;*/
+		padding: 20px;
+		margin: 2.5em auto 20px auto;
+	}
+
+	#headingArea {
+		margin: 5px;
+		border: 1px;
+	}
+
+	#headingArea img {
+		display: none;
+	}
+
+	#headingArea p {
+		padding-left: 20px;
+	}
+
+	article {
+		padding: 5px;
+	}
+
+	.twoSections,
+	.threeSections,
+	.boardLeft,
+	.boardRight {
+		padding: 10px;
+		margin: 5px;
+		width: 90%;
+	}
+
+	/* EXPERIMENTAL */
+
+	#mainNav {
+		position: static;
+		display: none;
+	}
+
+	.show-menu {
+		display: block;
+		text-align: right;
+	}
+
+	.show-menu img {
+		width: 40px;
+		height: 40px;
+	}
+
+	/* END EXPERIMENTAL */
+}
+
+/* END TABLETS */
+
+/* DESKTOPS */
+@media only screen and (min-width: 768px) {
+	#wrapper {
+		min-width: 875px;
+		max-width: 80%;
+		/*border:2px solid;*/
+		padding: 0;
+		margin: 2.5em auto 20px auto;
+	}
+
+	#headingArea h1 {
+		width: auto;
+		float: left;
+		font-size: 450%;
+	}
+
+	#headingArea img {
+		display: block;
+		float: left;
+	}
+
+	#headingArea p {
+		float: right;
+		margin-right: 20px;
+	}
+
+	.acrossTheTop {
+		margin: 10px;
+		width: 100%;
+	}
+
+	.twoSections {
+		float: left;
+		padding: 0;
+		margin: 0;
+		width: 50%;
+	}
+
+	.threeSections {
+		float: left;
+		padding: 0;
+		margin: 0;
+		width: 33%;
+	}
+
+	.boardLeft {
+		float: left;
+		padding: 0;
+		margin: 0;
+		width: 70%;
+	}
+
+	.boardRight {
+		float: left;
+		padding: 0;
+		margin: 0;
+		width: 25%;
+	}
+
+	article {
+		border: none;
+		/*box-shadow: 3px 3px 3px;*/
+		padding: 10px;
+		margin: 20px;
+	}
+
+	img {
+		margin: 5px;
+		padding: 0;
+		width: 50%;
+		float: right;
+	}
+
+	#headerLogo {
+		width: 144px;
+		height: 50px;
+		margin: 0;
+		padding: 0;
+		display: inline;
+	}
+
+	nav {
+		border-top: none;
+		border-bottom: none;
+		width: 100%;
+		margin: 0;
+	}
+
+	nav li {
+		float: left;
+	}
+
+	nav li a {
+		border-right: none;
+	}
+
+	form {
+		margin: 10px;
+		padding: 10px;
+	}
+
+	/* Feel Free to edit/move any of the table CSS below Jeremy */
+	/* Table CSS on addChangeFAQ.php */
+	table {
+		width: 100%;
+	}
+
+	th {
+		border: solid black 1px;
+	}
+
+	td {
+		border: solid black 1px;
+		text-align: left;
+	}
+
+	tr>td>input {
+		width: 100%;
+		box-sizing: border-box;
+		/* Makes it so input at 100% */
+		-moz-box-sizing: border-box;
+		/* does not expand past table data box */
+		-webkit-box-sizing: border-box;
+	}
+
+	tr>td>textarea {
+		width: 100%;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+
+	label {
+		display: inline-block;
+		width: 600px;
+		margin-right: 10px;
+		padding: 5px;
+	}
+
+	#questArea,
+	#questAnswer {
+		display: inline-block;
+		width: 100%;
+	}
+
+	/* EXPERIMENTAL */
+
+	/* Modifying what I learned from
+	 https://medialoot.com/blog/how-to-create-a-responsive-navigation-menu-using-only-css/
+  */
+
+	.show-menu {
+		text-decoration: none;
+		text-align: center;
+		padding: 10px 0;
+		display: none;
+	}
+
+	#mainNav {
+		display: block;
+	}
+
+	/* END EXPERIMENTAL */
+}
+
+/* END DESKTOPS */
+
+/* Printers */
+@media print {
+	/*img {
+	  display: none;
+	  }*/
+
+	form {
+		display: none;
+	}
+
+	button {
+		display: none;
+	}
+
+	nav {
+		display: none;
+	}
+
+	.hide {
+		display: none;
+	}
+}
+
+/* END PRINTERS */
