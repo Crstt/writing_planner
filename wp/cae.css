@@ -1,0 +1,22 @@
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+  }
+
+  header {
+	flex: 0 0 20%;
+  }
+
+  main {
+	flex: 1 0 auto;
+  }
+
+  footer {
+	flex: 0 0 10%;
+  }
+
+  .bg-green {
+    background-color: #006648;
+    color: #fff; /* Set the text color to white or any other contrasting color */
+  }

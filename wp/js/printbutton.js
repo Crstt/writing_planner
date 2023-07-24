@@ -1,7 +1,8 @@
 function printWACOutput() {
 
   // Hide elements with class "video"
-  var videoElements = document.getElementsByClassName("video");
+  var videoElements = document.getElementsByClassName("hideInPrint");
+  //videoElements += document.getElementsByClassName("hideInPrint");
   var videoDisplayValues = [];
   for (var i = 0; i < videoElements.length; i++) {
     videoDisplayValues[i] = videoElements[i].style.display;
@@ -17,9 +18,11 @@ function printWACOutput() {
   }
 }
 
-var printButton = document.getElementById("printButton");
-if (printButton.addEventListener) {
-    printButton.addEventListener("click", printWACOutput, false);
-} else if (printButton.attachEvent) {
-    printButton.attachEvent("onclick", printWACOutput);
+// onload of page add event listener to print button
+window.onload = function() {
+  var printButton = document.getElementById("printButton");
+  printButton.addEventListener("click", printWACOutput);
 }
+
+
+

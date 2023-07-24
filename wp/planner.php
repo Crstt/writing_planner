@@ -4,24 +4,23 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 $title = "Writing Planner";
 require_once("head.php");
-require_once("body.php");
+require_once("header.php");
 
 ?>
-
-<button id="printButton">Print This Page</button>
 <script src="./js/printbutton.js"></script>
-
+<section class="hideInPrint mx-5 row ">
+    <p class="col-8">
+        Thank you for your submission! Please see the steps below for your personal writing plan including due
+        dates for each step of the process. Use this plan to stay on track and create a great paper.
+    </p>
+    <button id="printButton" class="btn btn-success col-4">Print This Page</button>    
+</section>
 <?php
 
 $startDate = $_POST['startDate'];
 $dueDate = $_POST['dueDate'];
 $to = $_POST['studentEmail'];
-?>
 
-<p class="hide">Thank you for your submission! Please see the steps below for your personal writing plan including due
-    dates for each step of the process. Use this plan to stay on track and create a great paper.</p>
-
-<?php
 $startDateTime = strtotime($startDate);
 $dueDateTime = strtotime($dueDate);
 $days = ($dueDateTime - $startDateTime) / (24 * 60 * 60);
@@ -45,33 +44,42 @@ function readStepFromFile($stepNumber)
 {
     $filename = "plannerTexts/step" . $stepNumber . ".txt";
     $lines = file($filename, FILE_IGNORE_NEW_LINES);
-    
+
     $content = "<p><strong><em>" . $lines[0] . "</em></strong></p>";
     $content .= "<p>" . $lines[1] . "</p>";
-    
+
     if (isset($lines[2])) {
-        if($lines[2] != ""){
+        if ($lines[2] != "") {
             $parts = explode('|', $lines[2]);
             $text = trim($parts[0]);
             $link = trim($parts[1]);
             $content .= "<a href='" . $link . "' target='_blank'>" . $text . "</a> ";
-        }       
+        }
     }
+
+    $content .= '<section class="row">';
 
     // Loop for embedding YouTube videos
     for ($i = 3; $i < count($lines); $i++) {
         $parts = explode('|', $lines[$i]);
         $title = trim($parts[0]);
         $videoLink = trim($parts[1]);
-        $content .= "<div class='video'>
+        $content .= "<div class='video col hideInPrint'>
             <br>
             <p><strong><em>" . $title . "</em></strong></p>
             <iframe width='560' height='315' src='" . $videoLink . "' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
         </div>";
     }
-    
+
+    $content .= '</section>';
+
     return $content;
 }
+
+?>
+
+<section>
+<?php
 
 // Build the body variable
 $body = "";
@@ -79,11 +87,19 @@ $body = "";
 // Iterate through the steps
 for ($i = 1; $i <= 8; $i++) {
     $stepContent = readStepFromFile($i);
-    $body .= "<h3>Step " . $i . " By " . $datesArray[$i-1] . ":</h3>";
+    $body .= "<section class='step{$i} m-5' style='font-size: large;'> ";
+    $body .= "<h3>Step {$i} By {$datesArray[$i - 1]}:</h3>";
     $body .= $stepContent;
+    $body .= "</section>";
 }
 
 echo $body;
+
+?>
+
+</section>
+
+<?php
 
 if ($to != "") {
 
@@ -111,20 +127,22 @@ if ($to != "") {
     $message = $head . $body . $foot;
     $subject = "Writing Planner - Tutoring Services";
 
-    // https://stackoverflow.com/questions/16048347/unable-to-send-email-using-gmail-smtp-server-through-phpmailer-getting-error-s
     $mail = new PHPMailer(); // create a new object
     $mail->IsSMTP(); // enable SMTP
     $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true; // authentication enabled
     //$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->SMTPSecure = 'tls';
     //$mail->Host = "smtp.gmail.com";
+    //$mail->Host = "smtp.office365.com";
     $mail->Host = "smtp-mail.outlook.com";
+    //$mail->Host = "ivytech-edu.mail.protection.outlook.com";
     //$mail->Port = 465; // or 587
     $mail->Port = 587; // or 587
     //$mail->Username = "caetutoring@gmail.com";
-    $mail->Username = "fortwayne-tutoring@ivytech.edu";
-    $mail->Password = "Greenteaicecreamcone1.";
+    $mail->Username = "mcatalano1@ivytech.edu";
+    $mail->Password = "@11235Stella3";
     $mail->SetFrom("fortwayne-tutoring@ivytech.edu");
     $mail->Subject = $subject;
     $mail->Body = $message;
@@ -150,6 +168,6 @@ if ($to != "") {
 
 }
 
-echo "  <p class=\"hide\"><a href=\"index.php\">Fill Out the Form Again</a></p>\n";
+echo '<p class="hideInPrint m-5"><a class="btn btn-success" href="index.php">Fill Out the Form Again</a></p>';
 require_once("footer.php");
 ?>

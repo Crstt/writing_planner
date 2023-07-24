@@ -1,0 +1,170 @@
+/* External Style Sheet for Writing Planner Web Application */
+/* Author: Jeremy Nally */
+/* Last updated: January 4, 2021 */
+@font-face {
+	font-family: "Open Sans";
+	src: url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+  }
+
+body {
+	font-family: "Open Sans", sans-serif;
+	margin: 0;
+	min-height: 100vh;
+}
+
+#wrapper {
+	min-height: 90vh;
+}
+
+article {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.clearboth {
+	clear: both;
+}
+
+p,
+#optionalEmailLbl,
+#contactCAELbl {
+	font-size: 125%;
+}
+
+#headingArea {
+	float: left;
+	display: grid;
+	align-items: center;
+}
+
+header {
+	background-color: #66a391;
+	color: white;
+	margin: 0;
+	padding: 10px 0 0 0;
+}
+
+header nav {
+	background-color: #66a391;
+	color: white;
+	clear: both;
+}
+
+header h1 {
+	padding: 0 10px 10px 20px;
+	font-size: 2.5em;
+	margin: 0;
+	color: white;
+	/*-webkit-text-fill-color: black;
+	Will override color (regardless of order) 
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;*/
+}
+
+footer {
+	height: 10vh;
+	margin: 0;
+	text-align: center;
+	clear: both;
+	font-size: 1em;
+	padding-top: auto;
+	padding-bottom: auto;
+	background-color: #006648;
+	color: #ffffff;	
+    display: grid;
+    align-content: center;
+}
+
+img {
+	width: 50%;
+	height: auto;
+	float: right;
+}
+
+.formLabel {
+	width: 130px;
+	float: left;
+}
+
+.resp-container {
+	position: relative;
+	overflow: hidden;
+	padding-top: 56.25%;
+}
+
+legend {
+	font-weight: bold;
+}
+
+nav {
+	font: 1.4em Calibri, Helvetica, sanserif;
+	margin: 0;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+nav li a {
+	display: block;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav a:link {
+	color: white;
+}
+
+nav li a:hover {
+	background: #c5cef7;
+}
+
+/* unvisited link */
+a:link {
+	color: green;
+}
+
+/* visited link */
+a:visited {
+	color: green;
+}
+
+/* mouse over link */
+a:hover {
+	color: #292da3;
+}
+
+/* selected link */
+a:active {
+	color: #2726bb;
+}
+
+/* END DESKTOPS */
+
+/* Printers */
+@media print {
+	/*img {
+	  display: none;
+	  }*/
+
+	form {
+		display: none;
+	}
+
+	button {
+		display: none;
+	}
+
+	nav {
+		display: none;
+	}
+
+	.hide {
+		display: none;
+	}
+}
+
+/* END PRINTERS */
