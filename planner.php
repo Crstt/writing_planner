@@ -134,21 +134,21 @@
         //$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
         //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->SMTPSecure = 'tls';
-        //$mail->Host = "smtp.gmail.com";
+        $mail->Host = "smtp.gmail.com";
         //$mail->Host = "smtp.office365.com";
-        $mail->Host = "smtp-mail.outlook.com";
+        //$mail->Host = "smtp-mail.outlook.com";
         //$mail->Host = "ivytech-edu.mail.protection.outlook.com";
-        //$mail->Port = 465; 
-        $mail->Port = 587;
-        //$mail->Username = "caetutoring@gmail.com";
-        $mail->Username = "fortwayne-tutoring@ivytech.edu";
+        $mail->Port = 465; 
+        //$mail->Port = 587;
+        $mail->Username = "caetutoring@gmail.com";
+        //$mail->Username = "fortwayne-tutoring@ivytech.edu";
         $mail->Password = "Greenteaicecreamcone1.";
         $mail->SetFrom("fortwayne-tutoring@ivytech.edu");
         $mail->Subject = $subject;
         $mail->Body = $message;
         $mail->IsHTML(true);
         $mail->AddAddress($to);
-        $mail->SMTPDebug = false;
+        $mail->SMTPDebug = true;
         //$mail->do_debug = 0;
         $mail->Encoding = 'base64';
         $mail->CharSet = 'UTF-8';

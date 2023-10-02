@@ -2,21 +2,29 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-  }
+}
 
-  header {
-	flex: 0 0 20%;
-  }
+header {
+  flex: 0 0 20%;
+}
 
-  main {
-	flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
 
-  footer {
-	flex: 0 0 10%;
-  }
+footer {
+  flex: 0 0 10%;
+}
 
-  .bg-green {
-    background-color: #006648;
-    color: #fff; /* Set the text color to white or any other contrasting color */
-  }
+.bg-green {
+  background-color: #006648;
+  color: #fff; /* Set the text color to white or any other contrasting color */
+}
+
+.error-message {
+  color: #ff0000; /* Red color for error text */
+  font-size: 14px; /* Font size for the error message */
+  display: none; /* Initially hide the error messages */
+  margin-top: 4px; /* Add some spacing between input and error message */
+}
+  
